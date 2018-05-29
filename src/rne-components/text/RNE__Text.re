@@ -48,9 +48,9 @@ let component = ReasonReact.statelessComponent("RNEText");
 
 let make =
     (
-      ~style as userStyles: option(Style.t)=?,
-      ~headingMode: option(headingMode)=?,
-      ~fontFamily: option(string)=?,
+      ~style as userStyles=?,
+      ~headingMode=?,
+      ~fontFamily=?,
       children,
     ) => {
   ...component,
