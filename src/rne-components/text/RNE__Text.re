@@ -36,10 +36,12 @@ let getFontStyles = (~headingMode, ~fontFamily) => {
 
 let getCombinedStyles = (~userStyles, ~headingMode, ~fontFamily) => {
   let fontStyles = getFontStyles(~headingMode, ~fontFamily);
-  switch (userStyles) {
-  | Some(s) => Style.(concat([s, style(fontStyles)]))
-  | None => Style.style(fontStyles)
-  };
+  Style.(
+    switch (userStyles) {
+      | Some(s) => concat([s, style(fontStyles)])
+      | None => style(fontStyles)
+      }
+  );
 };
 
 let component = ReasonReact.statelessComponent("RNEText");
